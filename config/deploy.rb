@@ -1,8 +1,12 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
+before 'deploy', 'rvm1:install:ruby'
+set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
 set :application, "newfylox"
 set :repo_url, "https://github.com/PodBoxx/codeboxx.git"
+# set :git_http_username, "username"
+# set :git_http_password, "password"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
